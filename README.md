@@ -46,7 +46,7 @@ python3 --version
 		<td>file1.pdf||file2.pdf</td>
 		<td>title 1</td>
 		<td>author 1</td>
-		<td>subject 1</td>
+		<td>subject 1 || subject 3</td>
 		<td>Report</td>
 	</tr>
 	<tr>
