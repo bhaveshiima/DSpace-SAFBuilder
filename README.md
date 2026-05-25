@@ -17,10 +17,9 @@ It will show the python version installed in your system, if not showing then yo
 sudo apt update
 
 # apt install downloads and installs Python 3 and pip (Python package manager)
-# -y automatically answers "yes" to all installation prompts
 sudo apt install -y python3 python3-pip
 
-After installation just check the Python version
+## After installation just check the Python version
 python3 --version
 
 ## Some simple rules for the CSV spreadsheet
