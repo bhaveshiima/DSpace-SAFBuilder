@@ -13,10 +13,10 @@ python3 --version
 
 It will show the python version installed in your system, if not showing then you have to install Python on your system by using the following command
 
-# apt update refreshes the list of available packages
+## apt update refreshes the list of available packages
 sudo apt update
 
-# apt install downloads and installs Python 3 and pip (Python package manager)
+## apt install downloads and installs Python 3 and pip (Python package manager)
 sudo apt install -y python3 python3-pip
 
 ## After installation just check the Python version
@@ -59,13 +59,13 @@ python3 --version
 </table>
 
 
-# cd means "change directory" — navigate to the /dspace folder
+## cd means "change directory" — navigate to the /dspace folder
 cd /dspace
 
-# git clone downloads the tool from GitHub to your server
+## git clone downloads the tool from GitHub to your server
 git clone https://github.com/bhaveshiima/DSpace-SAFBuilder.git
 
-# Now enter to that folder
+## Now enter to that folder
 cd DSpace-SAFBuilder
 
 ## Create Folder (eg. bhavesh_bulkimport inside DSpace_SAFBuilder folder) 
@@ -77,8 +77,6 @@ mkdir bhavesh_bulkimport
 After copy execute the following command
 cd /dspace/DSpace_SAFBuilder/bhavesh_bulkimport/
 ls  (it will list all the files and folders)
-
-
 
 ## Usage  (go to 'bhavesh_bulkimport' folder)
 now you should be 'bhavesh_bulkimport' folder in order to run the script.
