@@ -15,13 +15,13 @@ Requires [Python](https://www.python.org/) version 3.8 or greater
 It will show the python version installed in your system, if not showing or some error shows then you need to install Python on your system by using the following commands
 
 #### update the list of available packages
-sudo apt update 
+	# sudo apt update
 
 #### Installs Python 3 and pip (Python package manager)
-sudo apt install -y python3 python3-pip
+	# sudo apt install -y python3 python3-pip
 
 ## After installation just check the Python version
-python3 --version
+	# python3 --version
 
 ## Some simple rules for the CSV spreadsheet
 * The first row should be your header, which defines the values you're going to provide. 
@@ -61,29 +61,29 @@ python3 --version
 
 
 ## cd means "change directory" — navigate to the /dspace folder
-cd /dspace
+	# cd /dspace
 
 ## git clone downloads the tool from GitHub to your server
-git clone https://github.com/bhaveshiima/DSpace-SAFBuilder.git
+	# git clone https://github.com/bhaveshiima/DSpace-SAFBuilder.git
 
 ## Now enter to that folder
-cd DSpace-SAFBuilder
+	# cd DSpace-SAFBuilder
 
 ## Create Folder (eg. bhavesh_bulkimport inside DSpace_SAFBuilder folder) 
-Go to /dspace/DSpace_SAFBuilder/
-Then create a folder name 'bhavesh_bulkimport'
-mkdir bhavesh_bulkimport
+Go to 
+	# /dspace/DSpace_SAFBuilder/
+Then create a folder name 'bhavesh_bulkimport' (this is the folder where you keeping your CSV + files)
+	# mkdir bhavesh_bulkimport
 
 ## Copy CSV file and pdf (or other) files to 'bhavesh_bulkimport' folder
 After copy execute the following command
-cd /dspace/DSpace_SAFBuilder/bhavesh_bulkimport/
-ls  (it will list all the files and folders)
+	# cd /dspace/DSpace_SAFBuilder/bhavesh_bulkimport/
+List all the files and folders
+	# ls
 
 ## Usage  (go to 'bhavesh_bulkimport' folder)
-now you should be 'bhavesh_bulkimport' folder in order to run the script.
-
-	# python3 /dspace/DSPACE_SAFBuilder/dspace-csv-archive.py /path/to/input/file.csv
-	python3 /dspace/DSPACE_SAFBuilder/dspace-csv-archive.py data.csv
+now you should be 'bhavesh_bulkimport' folder in order to run the script. Make sure that data.csv file will be the CSV file so check the filename before execute the following command
+	# python3 /dspace/DSPACE_SAFBuilder/dspace-csv-archive.py data.csv
 
 After successful execution, the script will processed files and generate the Dublin Code into a directory called `SimpleArchiveFormat` inside the 'bhavesh_bulkimport' directory.
 
