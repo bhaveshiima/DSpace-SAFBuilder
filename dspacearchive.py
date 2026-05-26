@@ -106,10 +106,17 @@ class ItemFactory:
         self.header = [self._normalize_column(col) for col in header]
 
     def _normalize_column(self, column):
-        """Convert a CSV column name to the internal bytes key format."""
+        """Convert a CSV column name to the internal bytes key format.
+
+        Handles all three language tag styles found in CSV headers:
+          dc.title [en]   -> dc.title#lang#en  (brackets with space)
+          dc.title[en]    -> dc.title#lang#en  (brackets without space)
+          dc.title en     -> dc.title#lang#en  (space only, no brackets)
+        """
         col = column.encode('utf-8').strip()
-        col = col.replace(b' [', b'#lang#')
-        col = col.replace(b'[', b'#lang#')
+        col = col.replace(b' [', b'#lang#')   # "dc.title [en]"
+        col = col.replace(b' ', b'#lang#')    # "dc.title en"
+        col = col.replace(b'[', b'#lang#')    # "dc.title[en]"
         col = col.replace(b']', b'')
         return col
 
