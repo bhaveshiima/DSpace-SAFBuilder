@@ -26,9 +26,11 @@ This tool takes a UTF-8 CSV spreadsheet and a set of files and converts them int
 DSpace-SAFBuilder/
 ├── dspace-csv-safbuilder.py   # Entry point — run this script
 ├── dspacearchive.py           # Item, ItemFactory, and DspaceArchive classes
-├── sample.csv                 # Sample CSV file for testing
-├── test1.pdf                  # Sample PDF file referenced in sample.csv
-├── test2.pdf                  # Sample PDF file referenced in sample.csv
+├── demo/
+│   ├── sample.csv             # Sample CSV file for testing
+│   ├── test1.pdf              # Sample PDF referenced in sample.csv (item 1)
+│   └── test2.pdf              # Sample PDF referenced in sample.csv (item 2)
+├── LICENSE
 └── readme.md
 ```
 
@@ -94,29 +96,45 @@ cd DSpace-SAFBuilder
 
 ## Sample Data (Quick Test)
 
-The repository includes ready-to-use sample files so you can test the tool immediately after cloning without needing your own data.
+The repository includes a `demo/` folder with ready-to-use sample files so you can test the tool immediately after cloning without needing your own data.
 
 | File | Description |
 |------|-------------|
-| `sample.csv` | Sample CSV with 2 items referencing `test1.pdf` and `test2.pdf` |
-| `test1.pdf` | Sample PDF file used as a bitstream in item 1 |
-| `test2.pdf` | Sample PDF file used as a bitstream in item 2 |
+| `demo/sample.csv` | Sample CSV with 2 items referencing `test1.pdf` and `test2.pdf` |
+| `demo/test1.pdf` | Sample PDF file used as a bitstream in item 1 |
+| `demo/test2.pdf` | Sample PDF file used as a bitstream in item 2 |
 
-### sample.csv structure
+### demo/sample.csv structure
 
 | files | dc.title en | dc.date.issued | dc.subject en | dc.type | dc.format.mimetype |
 |-------|------------|----------------|---------------|---------|-------------------|
 | test1.pdf | Title 1 | 2026 | Bulkimport \|\| Test1 | Document | application/pdf |
-| test2.pdf | "Title Two, with comma" | 2025 | Test2 \|\| Test1 | Article | application/pdf |
+| test2.pdf | Title 2 | 2025 | Test2 \|\| Test1 | Article | application/pdf |
 
 ### Run the sample
 
 ```bash
 # From inside the cloned DSpace-SAFBuilder folder
-python3 dspace-csv-safbuilder.py sample.csv
+python3 dspace-csv-safbuilder.py demo/sample.csv
 ```
 
-This will generate a `SimpleArchiveFormat/` directory in the same folder with two item directories (`item_001` and `item_002`), each containing a `dublin_core.xml`, a `contents` file, and the corresponding PDF.
+This will generate a `SimpleArchiveFormat/` directory inside `demo/` with two item directories (`item_001` and `item_002`), each containing a `dublin_core.xml`, a `contents` file, and the corresponding PDF.
+
+```
+demo/
+├── sample.csv
+├── test1.pdf
+├── test2.pdf
+└── SimpleArchiveFormat/
+    ├── item_001/
+    │   ├── contents
+    │   ├── dublin_core.xml
+    │   └── test1.pdf
+    └── item_002/
+        ├── contents
+        ├── dublin_core.xml
+        └── test2.pdf
+```
 
 ---
 
