@@ -57,10 +57,7 @@ class Item:
 
     def toXML(self, schema=b'dc'):
         """Return a bytes XML representation of this item for the given schema."""
-        if schema != b'dc':
-            header = b'<dublin_core schema="' + schema + b'">' + _LINESEP
-        else:
-            header = b'<dublin_core>' + _LINESEP
+        header = b'<dublin_core schema="' + schema + b'">' + _LINESEP
 
         lines = [header]
         for key, value in self._attributes.items():
@@ -79,14 +76,14 @@ class Item:
         lang = self._lang_attr(attribute)
         base = attribute.split(b'#lang#')[0]
         parts = base.split(b'.')
-        element = b' element="' + self._escape(parts[1]) + b'" ' if len(parts) >= 2 else b''
-        qualifier = b' qualifier="' + self._escape(parts[2]) + b'" ' if len(parts) >= 3 else b''
+        element   = b' element="'   + self._escape(parts[1]) + b'"' if len(parts) >= 2 else b''
+        qualifier = b' qualifier="' + self._escape(parts[2]) + b'"' if len(parts) >= 3 else b''
         return b'<dcvalue' + element + qualifier + lang + b'>'
 
     def _lang_attr(self, attribute):
         """Extract the language XML attribute string from a metadata key, or empty bytes."""
         match = re.search(rb'#lang#(\w+)', attribute)
-        return b' language="' + self._escape(match.group(1)) + b'" ' if match else b''
+        return b' language="' + self._escape(match.group(1)) + b'"' if match else b''
 
     def _escape(self, s, quote=False):
         """Escape XML special characters in a bytes string."""
