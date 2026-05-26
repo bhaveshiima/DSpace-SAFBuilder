@@ -1,22 +1,23 @@
 # DSpace-SAFBuilder
 DSpace SAFBuilder - Bulk Import data from CSV
-I have taken the reference of the https://github.com/lib-uoguelph-ca/dspace-csv-archive  and modified based on my understanding to make more simplified.
+<br>
+I have taken the reference of the https://github.com/lib-uoguelph-ca/dspace-csv-archive and modified based on my understanding to make more simplified version.
 
 ## Overview
-Takes a simple CSV spreadsheet (UTF-8), and a bunch of files and magically turns them into the DSpace Simple Archive format. This script supports unicode characters in metadata. The tool will automatically strip unicode characters out of filenames. 
+This code takes a simple CSV spreadsheet (UTF-8), and a bunch of files and it will turns them into the DSpace Simple Archive format. This tool supports unicode characters in metadata. It will automatically strip unicode characters out of filenames. 
 
 ## Requirements
 Requires [Python](https://www.python.org/) version 3.8 or greater
 
-Check the python version by using the following command
-python3 --version
+## Check the python version
+	# python3 --version
 
-It will show the python version installed in your system, if not showing then you have to install Python on your system by using the following command
+It will show the python version installed in your system, if not showing or some error shows then you need to install Python on your system by using the following commands
 
-## apt update refreshes the list of available packages
-sudo apt update
+#### update the list of available packages
+sudo apt update 
 
-## apt install downloads and installs Python 3 and pip (Python package manager)
+#### Installs Python 3 and pip (Python package manager)
 sudo apt install -y python3 python3-pip
 
 ## After installation just check the Python version
