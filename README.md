@@ -298,6 +298,8 @@ If the import did not go as planned, use the mapfile to reverse it:
 | XML validation error in DSpace | Raw `<`, `>`, or `&` characters in metadata values | The tool escapes these automatically — ensure your CSV is saved as UTF-8 |
 | Import fails after validate passes | `SimpleArchiveFormat` folder not accessible by `dspace` user | Run `sudo chown -R dspace:dspace <folder>` |
 | Wrong XML tag in metadata file | Schema prefix in CSV header does not match `dc` | Check column names start with `dc.` for Dublin Core |
+| `language` appears inside `element` or `qualifier` (e.g. `element="title en"`) | Language code written without brackets — e.g. `dc.title en` | All three formats are supported: `dc.title en`, `dc.title [en]`, `dc.title[en]` |
+| DSpace error: `Metadata field does not exist` | Language code is being included in the field name instead of as a separate attribute | Same as above — ensure language code is separated by a space or brackets |
 
 ---
 
