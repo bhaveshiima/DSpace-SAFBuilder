@@ -221,11 +221,11 @@ SimpleArchiveFormat/
 Each `dublin_core.xml` looks like:
 
 ```xml
-<dublin_core>
-  <dcvalue element="title" language="en">Title One</dcvalue>
-  <dcvalue element="contributor" qualifier="author" language="en">Author One</dcvalue>
-  <dcvalue element="subject">Subject 1</dcvalue>
-  <dcvalue element="type">Report</dcvalue>
+<dublin_core schema="dc">
+<dcvalue element="title" language="en">Title One</dcvalue>
+<dcvalue element="contributor" qualifier="author" language="en">Author One</dcvalue>
+<dcvalue element="subject">Subject 1</dcvalue>
+<dcvalue element="type">Report</dcvalue>
 </dublin_core>
 ```
 
