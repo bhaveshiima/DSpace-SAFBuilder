@@ -1,6 +1,6 @@
 # DSpace-SAFBuilder
 
-**DSpace SAFBuilder: Simple Archive Format packages Generator from CSV for Bulk Import in DSpace 7+ (Tested in 9.2)**
+**Simple Archive Format packages Generator from CSV for Bulk Import in DSpace 7+ (Tested in 9.2)**
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
