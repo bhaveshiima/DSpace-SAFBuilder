@@ -90,13 +90,6 @@ cd DSpace-SAFBuilder
 | Commas in values | Wrap the cell in double quotes — e.g. `"Roses are red, violets are blue"` |
 | Column order | Does not matter |
 
-### Example CSV
-
-| files | dc.title [en] | dc.contributor.author [en] | dc.subject | dc.type |
-|-------|--------------|---------------------------|------------|---------|
-| file1.pdf\|\|file2.pdf | Title One | Author One | Subject 1\|\|Subject 3 | Report |
-| file3.pdf | "Title Two, with comma" | Author A\|\|Author B | Subject 2 | Article |
-
 ---
 
 ## Sample Data (Quick Test)
@@ -114,7 +107,7 @@ The repository includes ready-to-use sample files so you can test the tool immed
 | files | dc.title en | dc.date.issued | dc.subject en | dc.type | dc.format.mimetype |
 |-------|------------|----------------|---------------|---------|-------------------|
 | test1.pdf | Title 1 | 2026 | Bulkimport \|\| Test1 | Document | application/pdf |
-| test2.pdf | Title 2 | 2025 | Test2 \|\| Test1 | Article | application/pdf |
+| test2.pdf | "Title Two, with comma" | 2025 | Test2 \|\| Test1 | Article | application/pdf |
 
 ### Run the sample
 
