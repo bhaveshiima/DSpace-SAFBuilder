@@ -92,7 +92,7 @@ cd DSpace-SAFBuilder
 | `files` column | **Required.** Paths to files relative to the CSV file's location. Use `\|\|` to separate multiple files per item. |
 | Metadata columns | Use fully qualified Dublin Core names — e.g. `dc.title`, `dc.contributor.author` |
 | Multiple schemas | Non-DC metadata uses the schema prefix — e.g. `local.identifier` |
-| Language tags | Append the language in brackets after the column name — e.g. `dc.title [en]` or `dc.title[en]` |
+| Language tags | All three formats are supported: `dc.title en` (space), `dc.title [en]` (space + brackets), `dc.title[en]` (brackets only) |
 | Multiple values | Separate values with double-pipe `\|\|` — e.g. `author1\|\|author2` |
 | Commas in values | Wrap the cell in double quotes — e.g. `"Roses are red, violets are blue"` |
 | Column order | Does not matter |
@@ -110,6 +110,8 @@ The repository includes a `demo/` folder with ready-to-use sample files so you c
 | `demo/test2.pdf` | Sample PDF file used as a bitstream in item 2 |
 
 ### demo/sample.csv structure
+
+The sample uses the space-separated language format (`dc.title en`) — one of the three supported styles.
 
 | files | dc.title en | dc.date.issued | dc.subject en | dc.type | dc.format.mimetype |
 |-------|------------|----------------|---------------|---------|-------------------|
@@ -224,10 +226,14 @@ Each `dublin_core.xml` looks like:
 <dublin_core schema="dc">
 <dcvalue element="title" language="en">Title One</dcvalue>
 <dcvalue element="contributor" qualifier="author" language="en">Author One</dcvalue>
-<dcvalue element="subject">Subject 1</dcvalue>
+<dcvalue element="date" qualifier="issued">2026</dcvalue>
+<dcvalue element="subject" language="en">Subject 1</dcvalue>
 <dcvalue element="type">Report</dcvalue>
+<dcvalue element="format" qualifier="mimetype">application/pdf</dcvalue>
 </dublin_core>
 ```
+
+> **Note:** The `schema="dc"` attribute is always present on the root tag. For non-Dublin Core schemas (e.g. `local.*`), a separate file `metadata_local.xml` is created with `<dublin_core schema="local">`.
 
 ### Step 5 — Import into DSpace
 
@@ -303,8 +309,7 @@ If the import did not go as planned, use the mapfile to reverse it:
 | XML validation error in DSpace | Raw `<`, `>`, or `&` characters in metadata values | The tool escapes these automatically — ensure your CSV is saved as UTF-8 |
 | Import fails after validate passes | `SimpleArchiveFormat` folder not accessible by `dspace` user | Run `sudo chown -R dspace:dspace <folder>` |
 | Wrong XML tag in metadata file | Schema prefix in CSV header does not match `dc` | Check column names start with `dc.` for Dublin Core |
-| `language` appears inside `element` or `qualifier` (e.g. `element="title en"`) | Language code written without brackets — e.g. `dc.title en` | All three formats are supported: `dc.title en`, `dc.title [en]`, `dc.title[en]` |
-| DSpace error: `Metadata field does not exist` | Language code is being included in the field name instead of as a separate attribute | Same as above — ensure language code is separated by a space or brackets |
+| DSpace error: `Metadata field does not exist` | Language code ended up inside the field name (old SAFBuilder bug) | Use any supported format: `dc.title en`, `dc.title [en]`, or `dc.title[en]` — all are handled correctly |
 
 ---
 
