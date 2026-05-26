@@ -6,11 +6,16 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey)
 
+The original SAFBuilder tool stopped working with newer versions of DSpace. This project brings it back as a lightweight Python script — no Java, no GUI, just a single command.
+
 This tool takes a UTF-8 CSV spreadsheet and a set of files and converts them into the **DSpace Simple Archive Format (SAF)** — a structured directory ready for batch import into a DSpace repository.
 
 > Adapted and simplified from [dspace-csv-archive](https://github.com/lib-uoguelph-ca/dspace-csv-archive).
 
+> **Compatibility:** Designed for **DSpace 7 and above**. Tested on **DSpace 9.2**.
+
 ### Key Features
+- Works with **DSpace 7+** — tested on DSpace 9.2
 - Converts each CSV row into an individual DSpace item directory
 - Supports Unicode characters in metadata
 - Automatically strips diacritics from filenames
