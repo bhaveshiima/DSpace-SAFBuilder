@@ -1,0 +1,3 @@
+files, dc.title en, dc.date.issued, dc.subject en, dc.type, dc.format.mimetype
+test1.pdf, Title 1, 2026, Bulkimport || Test1, Document, application/pdf
+test2.pdf, Title 2, 2025, Test2 || Test1, Article, application/pdf
