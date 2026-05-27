@@ -2,6 +2,7 @@
 
 **Simple Archive Format packages Generator from CSV for Bulk Import in DSpace 7+ (Tested in 9.2)**
 
+
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey)
@@ -147,9 +148,9 @@ demo/
 
 ## Step-by-Step Usage
 
-### Step 1 — Create a working folder
+### Step 1 - Create a folder
 
-Create a folder for your batch import inside the project directory and place your CSV file and all referenced files inside it:
+Create a folder inside the `DSpace-SAFBuilder` folder, then copy your CSV file and all referenced files into it:
 
 ```bash
 # Navigate to the project folder
@@ -180,7 +181,7 @@ ls
 
 ### Step 3 — Run the SAF builder
 
-Pass the path to your CSV file. The script will automatically create a `SimpleArchiveFormat/` directory next to it.
+> **Pass the path to your CSV file. The script will automatically create a `SimpleArchiveFormat/` directory next to it.**
 
 ```bash
 python3 /dspace/DSpace-SAFBuilder/dspace-csv-safbuilder.py data.csv
@@ -189,8 +190,8 @@ python3 /dspace/DSpace-SAFBuilder/dspace-csv-safbuilder.py data.csv
 On success you will see:
 
 ```
-Building archive from: data.csv
-Archive written to: /dspace/DSpace-SAFBuilder/bulk_import/SimpleArchiveFormat
+Building SimpleArchiveFormat from: data.csv
+The files and folders are written to: /dspace/DSpace-SAFBuilder/bulk_import/SimpleArchiveFormat
 ```
 
 > **Warning:** Re-running the script will overwrite any existing `SimpleArchiveFormat/` directory. Copy the output somewhere safe before re-running.
@@ -275,6 +276,8 @@ If validation passes with no errors, proceed to the actual import.
 
 #### Import
 
+> **Run this command to import your items into DSpace:**
+
 ```bash
 /dspace/bin/dspace import -a \
   -e admin@yourinstitution.edu \
@@ -310,6 +313,18 @@ If the import did not go as planned, use the mapfile to reverse it:
 | Import fails after validate passes | `SimpleArchiveFormat` folder not accessible by `dspace` user | Run `sudo chown -R dspace:dspace <folder>` |
 | Wrong XML tag in metadata file | Schema prefix in CSV header does not match `dc` | Check column names start with `dc.` for Dublin Core |
 | DSpace error: `Metadata field does not exist` | Language code ended up inside the field name (old SAFBuilder bug) | Use any supported format: `dc.title en`, `dc.title [en]`, or `dc.title[en]` — all are handled correctly |
+
+---
+
+## Contributing
+
+Contributions, bug reports, and feature requests are welcome.
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
 
 ---
 
